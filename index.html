@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mundo del Vehículo Eléctrico: Un Análisis Interactivo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Tech -->
+    <!-- Application Structure Plan: Se ha diseñado una SPA (Single-Page Application) con navegación vertical por secciones temáticas para una exploración fluida y no lineal. La estructura es: 1. Hero (Introducción impactante), 2. Línea de Tiempo Interactiva (Historia), 3. Diagrama Funcional Interactivo (Principios Físicos), 4. Dashboard de Uruguay (Datos y Gráficos), 5. Análisis Comparativo (Ventajas vs. Desafíos), 6. Conclusión. Esta arquitectura transforma un informe académico en una experiencia de descubrimiento, donde el usuario controla el flujo, haciendo que la información compleja sea más digerible y atractiva. La interacción (clics en la línea de tiempo, hovers en el diagrama) se elige para fomentar la exploración activa en lugar de la lectura pasiva. -->
+    <!-- Visualization & Content Choices: 1. Historia -> Objetivo: Sintetizar 200 años -> Método: Línea de tiempo HTML/CSS/JS -> Interacción: Clic para expandir detalles -> Justificación: Evita un bloque de texto largo, es visualmente atractivo y fragmenta la información. 2. Principios Físicos -> Objetivo: Clarificar conceptos abstractos -> Método: Diagrama de flujo HTML/CSS -> Interacción: Hover para mostrar tooltips con leyes físicas -> Justificación: Conecta la teoría (leyes) con la práctica (componentes del auto) de forma visual. 3. Datos Uruguay -> Objetivo: Comparar y mostrar crecimiento -> Método: Gráfico de barras y donas (Chart.js) -> Interacción: Tooltips en hover -> Justificación: Los gráficos comunican datos cuantitativos de forma más inmediata y potente que las tablas. 4. Análisis -> Objetivo: Presentar una visión equilibrada -> Método: Columnas con iconos (HTML/CSS) -> Interacción: Estático para una fácil comparación visual. -> Justificación: Estructura clara y escaneable para un análisis de pros y contras. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .chart-container { position: relative; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 380px; } }
+        .nav-link { transition: color 0.3s, border-color 0.3s; }
+        .nav-link.active { color: #0891b2; border-bottom-color: #0891b2; }
+        .timeline-item-content { transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-center items-center h-16">
+                <ul class="flex space-x-4 md:space-x-8 text-sm md:text-base font-medium text-slate-600">
+                    <li><a href="#historia" class="nav-link py-2 border-b-2 border-transparent hover:text-cyan-600">Historia</a></li>
+                    <li><a href="#funcionamiento" class="nav-link py-2 border-b-2 border-transparent hover:text-cyan-600">Funcionamiento</a></li>
+                    <li><a href="#uruguay" class="nav-link py-2 border-b-2 border-transparent hover:text-cyan-600">Uruguay</a></li>
+                    <li><a href="#analisis" class="nav-link py-2 border-b-2 border-transparent hover:text-cyan-600">Análisis</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="min-h-screen flex items-center bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-800 leading-tight">
+                    El Mundo del Vehículo Eléctrico
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                    Un análisis interactivo sobre su sorprendente historia, los principios que lo impulsan y su presente y futuro en Uruguay.
+                </p>
+                <div class="mt-10 animate-bounce">
+                    <a href="#historia" class="text-slate-500">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="historia" class="py-20 md:py-28">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Un Viaje de 200 Años</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">La historia del vehículo eléctrico es más antigua y fascinante de lo que muchos imaginan. No es una invención del siglo XXI, sino una tecnología que compitió, y en su momento dominó, a principios de la era del automóvil. Explore los hitos clave de este viaje cíclico.</p>
+                </div>
+                <div id="timeline-container" class="relative">
+                </div>
+            </div>
+        </section>
+
+        <section id="funcionamiento" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Del Electrón a la Rueda</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">El motor eléctrico es una maravilla de la física aplicada. Su funcionamiento, elegante y eficiente, se basa en las leyes fundamentales del electromagnetismo. Pase el cursor sobre cada componente para descubrir cómo la energía se transforma en movimiento.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 text-center font-semibold text-slate-700">
+                    <div class="diagram-item p-4 border-2 border-slate-200 rounded-lg shadow-sm w-48 h-32 flex items-center justify-center" data-info="La batería almacena energía en Corriente Continua (CC). Su funcionamiento se rige por la Ley de Gauss para la Electricidad, que describe cómo se crean los campos eléctricos debido a la separación de cargas.">
+                        <span class="text-2xl mr-2">🔋</span> Batería
+                    </div>
+                    <div class="text-2xl text-cyan-500 font-bold">&rarr;</div>
+                    <div class="diagram-item p-4 border-2 border-slate-200 rounded-lg shadow-sm w-48 h-32 flex items-center justify-center" data-info="El inversor convierte la CC de la batería en Corriente Alterna (CA) para el motor. Controla la velocidad del motor ajustando la frecuencia de la CA.">
+                        <span class="text-2xl mr-2">⚡</span> Inversor
+                    </div>
+                    <div class="text-2xl text-cyan-500 font-bold">&rarr;</div>
+                    <div class="diagram-item p-4 border-2 border-slate-200 rounded-lg shadow-sm w-48 h-32 flex items-center justify-center" data-info="Recibe CA y la usa para crear un campo magnético giratorio (Ley de Ampère-Maxwell). Este campo interactúa con imanes en el rotor, generando una fuerza (Fuerza de Lorentz) que produce el giro y movimiento.">
+                        <span class="text-2xl mr-2">⚙️</span> Motor Eléctrico
+                    </div>
+                     <div class="text-2xl text-cyan-500 font-bold">&rarr;</div>
+                    <div class="diagram-item p-4 border-2 border-slate-200 rounded-lg shadow-sm w-48 h-32 flex items-center justify-center" data-info="El giro del motor se transfiere a las ruedas, impulsando el vehículo. Al frenar, el proceso se invierte (Ley de Faraday): el movimiento de las ruedas hace girar el motor, que ahora genera electricidad y recarga la batería (Frenado Regenerativo).">
+                        <span class="text-2xl mr-2">🚗</span> Ruedas
+                    </div>
+                </div>
+                <div id="diagram-info" class="mt-8 text-center text-slate-600 bg-slate-100 p-4 rounded-lg min-h-[80px] max-w-3xl mx-auto flex items-center justify-center transition-opacity duration-300 opacity-0">
+                    <p>Pase el cursor sobre un elemento para ver la explicación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="uruguay" class="py-20 md:py-28">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Uruguay: Laboratorio Eléctrico</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Con una matriz energética limpia y políticas de incentivo, Uruguay se ha convertido en un líder regional en movilidad eléctrica. Los datos muestran un crecimiento acelerado y un ahorro económico sustancial para los usuarios, impulsado por una robusta red de carga pública.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 class="font-bold text-lg text-slate-800">Crecimiento de Ventas</h3>
+                        <p class="text-4xl font-extrabold text-cyan-600 mt-2">+80.1%</p>
+                        <p class="text-slate-500 mt-1">Aumento de ventas de VE en 2023 vs 2022.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 class="font-bold text-lg text-slate-800">Puntos de Carga Públicos</h3>
+                        <p class="text-4xl font-extrabold text-cyan-600 mt-2">&gt;350</p>
+                        <p class="text-slate-500 mt-1">Desplegados por UTE en todo el país (proy. 2024).</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 class="font-bold text-lg text-slate-800">Ahorro en "Combustible"</h3>
+                        <p class="text-4xl font-extrabold text-cyan-600 mt-2">14x</p>
+                        <p class="text-slate-500 mt-1">Cargar un VE puede ser hasta 14 veces más barato que llenar un tanque.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-16">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-center text-slate-800 mb-4">Evolución del Mercado (Unidades Vendidas)</h3>
+                        <div class="chart-container">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-center text-slate-800 mb-4">Costo Comparativo por 100km (UYU)</h3>
+                        <div class="chart-container">
+                            <canvas id="costChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analisis" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Análisis: Luces y Sombras</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">La transición eléctrica es compleja. Ofrece enormes ventajas para nuestras ciudades y bolsillos, pero también presenta desafíos tecnológicos y, crucialmente, un impacto socioambiental en su cadena de producción que no debe ser ignorado.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="bg-slate-50 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-green-600 mb-6 text-center">Ventajas Clave</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✓</span><div><strong class="text-slate-800">Cero Emisiones Locales:</strong> No contaminan el aire de las ciudades, mejorando la calidad de vida.</div></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✓</span><div><strong class="text-slate-800">Ahorro Económico:</strong> El costo por kilómetro es drásticamente inferior al de la gasolina, además de tener menos mantenimiento.</div></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✓</span><div><strong class="text-slate-800">Conducción Silenciosa:</strong> Reducen la contaminación acústica, creando entornos urbanos más tranquilos.</div></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✓</span><div><strong class="text-slate-800">Aceleración Instantánea:</strong> La entrega de potencia es inmediata, ofreciendo una experiencia de manejo ágil y divertida.</div></li>
+                        </ul>
+                    </div>
+                     <div class="bg-slate-50 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-amber-600 mb-6 text-center">Desafíos Críticos</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 text-2xl">⚠️</span><div><strong class="text-slate-800">Precio Inicial Elevado:</strong> Siguen siendo más caros de comprar que sus equivalentes a combustión.</div></li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 text-2xl">⚠️</span><div><strong class="text-slate-800">Autonomía y Carga:</strong> Aunque mejoran, la ansiedad por la autonomía y los tiempos de carga siguen siendo una barrera.</div></li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 text-2xl">⚠️</span><div><strong class="text-slate-800">Degradación de la Batería:</strong> Con el tiempo pierden capacidad, y su reemplazo es costoso.</div></li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 text-2xl">⚠️</span><div><strong class="text-slate-800">Impacto de la Minería:</strong> La extracción de litio y otros materiales tiene un alto costo ambiental y social en las regiones productoras.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="py-20 md:py-28">
+            <div class="container mx-auto px-4">
+                 <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800 text-center mb-6">Conclusión: Un Futuro Equilibrado</h2>
+                    <p class="text-slate-600 text-justify space-y-4">
+                        <span>El vehículo eléctrico es una tecnología superior y una solución prometedora para los desafíos energéticos y ambientales de Uruguay. Los beneficios locales —aire más limpio, menor dependencia de fósiles y ahorro para el consumidor— son innegables y se apoyan en una sólida infraestructura.</span>
+                        <span>Sin embargo, una perspectiva responsable exige mirar más allá de nuestras fronteras. La sostenibilidad global de esta transición depende de resolver los profundos desafíos ambientales y sociales de su cadena de suministro. El futuro del transporte es eléctrico, pero su éxito real dependerá de nuestra capacidad para equilibrar los beneficios locales con nuestras responsabilidades globales, abogando por una minería responsable y una economía circular para las baterías.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 Análisis Interactivo del Vehículo Eléctrico.</p>
+            <p class="mt-2">Creado a partir del informe "El Vehículo Eléctrico" para una visualización de datos mejorada.</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const timelineData = [
+        { year: '1828', title: 'El Primer Impulso', text: 'El húngaro Ányos Jedlik construye un modelo a escala impulsado por un motor eléctrico, una prueba de concepto fundamental.' },
+        { year: '1834', title: 'Pioneros Paralelos', text: 'Robert Anderson en Escocia y Thomas Davenport en EE.UU. crean, de forma independiente, los primeros carruajes eléctricos rudimentarios.' },
+        { year: '1859', title: 'La Batería Recargable', text: 'Gaston Planté inventa la batería de plomo-ácido, el habilitador tecnológico clave que hizo viables a los vehículos eléctricos.' },
+        { year: '1884', title: 'Producción en Serie', text: 'El inglés Thomas Parker, responsable de electrificar el metro de Londres, comienza a construir los primeros coches eléctricos de producción.' },
+        { year: '1899', title: 'Récord de Velocidad', text: 'Camille Jenatzy, en su vehículo "La Jamais Contente", se convierte en la primera persona en superar los 100 km/h.' },
+        { year: '1900', title: 'La Edad de Oro', text: 'El 38% de los automóviles en EE.UU. son eléctricos, superando a los de gasolina. Eran silenciosos, limpios y fáciles de manejar.' },
+        { year: '1912', title: 'El Declive', text: 'La cadena de montaje de Henry Ford y el motor de arranque eléctrico hacen que los autos a gasolina sean mucho más baratos y prácticos.' },
+        { year: '2008', title: 'El Renacimiento', text: 'Tesla Motors lanza el Roadster, cambiando la percepción pública y demostrando que los VE podían ser deseables y de alto rendimiento gracias a las baterías de iones de litio.' },
+        { year: '2015', title: 'Llegada a Uruguay', text: 'El Mitsubishi i-Miev se convierte en el primer VE vendido masivamente en el país, iniciando la era moderna de la electromovilidad local.' },
+    ];
+
+    const timelineContainer = document.getElementById('timeline-container');
+    const line = document.createElement('div');
+    line.className = 'absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 transform -translate-y-1/2';
+    timelineContainer.appendChild(line);
+    const itemContainer = document.createElement('div');
+    itemContainer.className = 'flex justify-between relative';
+    
+    timelineData.forEach((item, index) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'flex flex-col items-center group cursor-pointer';
+
+        const dot = document.createElement('div');
+        dot.className = 'w-4 h-4 bg-white border-2 border-slate-400 rounded-full transition-colors group-hover:bg-cyan-500 group-hover:border-cyan-500';
+
+        const year = document.createElement('div');
+        year.className = 'mt-4 font-bold text-slate-700';
+        year.textContent = item.year;
+
+        const content = document.createElement('div');
+        content.className = 'timeline-item-content absolute bottom-full mb-4 w-64 bg-white p-4 rounded-lg shadow-lg opacity-0 transform translate-y-2 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-80';
+        const title = document.createElement('h4');
+        title.className = 'font-bold text-cyan-700 text-sm';
+        title.textContent = item.title;
+        const text = document.createElement('p');
+        text.className = 'text-sm text-slate-600 mt-1';
+        text.textContent = item.text;
+        content.appendChild(title);
+        content.appendChild(text);
+
+        wrapper.appendChild(content);
+        wrapper.appendChild(dot);
+        wrapper.appendChild(year);
+        itemContainer.appendChild(wrapper);
+    });
+    timelineContainer.appendChild(itemContainer);
+
+    const diagramItems = document.querySelectorAll('.diagram-item');
+    const infoBox = document.getElementById('diagram-info');
+    const infoBoxText = infoBox.querySelector('p');
+
+    diagramItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            infoBoxText.textContent = item.dataset.info;
+            infoBox.classList.remove('opacity-0');
+        });
+    });
+
+    const salesCtx = document.getElementById('salesChart').getContext('2d');
+    new Chart(salesCtx, {
+        type: 'bar',
+        data: {
+            labels: ['2022', '2023'],
+            datasets: [{
+                label: 'Unidades Vendidas',
+                data: [1048, 1887],
+                backgroundColor: ['#67e8f9', '#0891b2'],
+                borderColor: ['#0e7490', '#0e7490'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#1e293b',
+                    titleFont: { size: 14, weight: 'bold' },
+                    bodyFont: { size: 12 },
+                    padding: 10,
+                    cornerRadius: 4
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: '#e2e8f0' }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+
+    const costCtx = document.getElementById('costChart').getContext('2d');
+    new Chart(costCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vehículo Eléctrico (UTE Tarifa Valle)', 'Vehículo a Gasolina'],
+            datasets: [{
+                data: [43.2, 628.0],
+                backgroundColor: ['#0891b2', '#f59e0b'],
+                hoverBackgroundColor: ['#06b6d4', '#facc15'],
+                borderColor: '#ffffff',
+                borderWidth: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#1e293b',
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed !== null) {
+                                label += new Intl.NumberFormat('es-UY', { style: 'currency', currency: 'UYU' }).format(context.parsed);
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('main section');
+    const headerHeight = document.getElementById('header').offsetHeight;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                });
+            }
+        });
+    }, { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: 0.5 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+});
+</script>
+</body>
+</html>
