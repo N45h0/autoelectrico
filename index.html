@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -15,8 +14,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://electric.alvy.site/">
@@ -41,10 +40,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-green': '#84cc16',
-                        'brand-blue': '#0c4a6e',
-                        'brand-light-gray': '#f3f4f6',
-                        'brand-dark-text': '#1f2937',
+                        'brand-dark': '#111111',
+                        'brand-light': '#F5F5F7',
+                        'brand-accent': '#00FF00',
+                        'brand-gray': '#1D1D1F',
                     }
                 }
             }
@@ -52,212 +51,258 @@
     </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #374151; }
+        body { font-family: 'Inter', sans-serif; background-color: #111111; color: #F5F5F7; }
         .chart-container { position: relative; height:300px; width:100%; max-width:500px; margin: auto; }
         .nav-link { transition: color 0.3s, border-color 0.3s; }
-        .nav-link.active { color: #84cc16; border-bottom-color: #84cc16; }
+        .nav-link.active { color: #00FF00; border-bottom-color: #00FF00; }
         .timeline-item-content { transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
-        .timeline-wrapper:not(:last-child)::after { content: ''; position: absolute; left: 1.125rem; top: 2.5rem; bottom: -2.5rem; width: 2px; background-color: #e5e7eb; transform: translateX(-50%); }
+        .timeline-wrapper:not(:last-child)::after { content: ''; position: absolute; left: 1.125rem; top: 2.5rem; bottom: -2.5rem; width: 2px; background-color: #333; transform: translateX(-50%); }
         @media (min-width: 1024px) {
             .timeline-wrapper:not(:last-child)::after { content: none; }
         }
         .gallery-image-container {
             width: 100%;
-            height: 43rem; /* ALTURA MODIFICADA */
+            height: 22rem; /* 352px */
             border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
             overflow: hidden;
         }
-         figure figcaption {
+        figure figcaption {
             margin-top: 0.75rem;
             font-size: 0.875rem;
             line-height: 1.25rem;
-            color: #4b5563;
+            color: #9ca3af; /* gray-400 */
             text-align: center;
+        }
+        .hero-bg {
+            background-image: url('Car exhaust pipes fading away into clean air, symbolic representation of transition to electric vehicles, environmental theme, dramatic lighting.png');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-brand-dark">
 
-    <header id="header" class="bg-white/90 backdrop-blur-lg sticky top-0 left-0 right-0 z-50 border-b border-gray-200">
+    <header id="header" class="bg-brand-dark/80 backdrop-blur-lg sticky top-0 left-0 right-0 z-50 border-b border-brand-gray">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex justify-between items-center h-20">
-                <div class="text-2xl font-bold text-brand-green">
-                    Electric<span class="text-brand-dark-text">Insight</span>
+                 <div class="text-2xl font-bold text-brand-accent">
+                    Electric<span class="text-brand-light">Insight</span>
                 </div>
-                <ul class="hidden md:flex space-x-8 text-base font-medium text-brand-dark-text">
-                    <li><a href="#historia" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-green">Historia</a></li>
-                    <li><a href="#funcionamiento" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-green">Funcionamiento</a></li>
-                    <li><a href="#uruguay" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-green">Uruguay</a></li>
-                    <li><a href="#analisis" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-green">Análisis</a></li>
-                    <li><a href="#fuentes" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-green">Fuentes</a></li>
+                <ul class="hidden md:flex space-x-8 text-base font-medium text-brand-light">
+                    <li><a href="#historia" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-accent">Historia</a></li>
+                    <li><a href="#funcionamiento" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-accent">Funcionamiento</a></li>
+                    <li><a href="#uruguay" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-accent">Uruguay</a></li>
+                    <li><a href="#analisis" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-accent">Análisis</a></li>
+                    <li><a href="#fuentes" class="nav-link py-2 border-b-2 border-transparent hover:text-brand-accent">Fuentes</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark-text leading-tight">
-                        El Vehículo Eléctrico
-                    </h1>
-                    <p class="mt-4 text-lg text-gray-600">
-                        Un análisis interactivo de su historia cíclica, los principios físicos que lo impulsan y su realidad contemporánea en Uruguay.
-                    </p>
-                </div>
-                <div class="gallery-image-container h-auto">
-                    <img src="vintage electric vehicle from 1900s next to modern electric car, dramatic lighting, historical comparison, professional photography.png" alt="Comparativa entre un vehículo eléctrico de 1900 y uno moderno" class="w-full h-full object-cover">
+        <section id="hero" class="min-h-screen flex items-center justify-center relative hero-bg">
+            <div class="absolute inset-0 bg-black/70"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                    El Vehículo Eléctrico
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                    Un análisis interactivo de su historia cíclica, los principios físicos que lo impulsan y su realidad contemporánea en Uruguay.
+                </p>
+                <div class="mt-10 animate-bounce">
+                    <a href="#historia" class="text-brand-accent">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="historia" class="py-16 md:py-24 bg-brand-light-gray">
+        <section id="historia" class="py-16 md:py-24 bg-brand-dark">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark-text">Un Viaje de 200 Años</h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">La historia del vehículo eléctrico no es una invención moderna, sino una tecnología con casi dos siglos de historia que fue eclipsada por el motor de combustión.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-light">Un Viaje de 200 Años</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">La historia del vehículo eléctrico no es una invención moderna, sino una tecnología con casi dos siglos de historia que fue eclipsada por el motor de combustión.</p>
                 </div>
                 <div id="timeline-container" class="relative max-w-5xl mx-auto">
                 </div>
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                     <figure>
                         <div class="gallery-image-container">
                             <img src="La Jamais Contente electric vehicle 1899 speed record, historical photograph, dramatic angle.png" alt="Ilustración artística de La Jamais Contente" class="w-full h-full object-cover">
                         </div>
-                        <figcaption>“La Jamais Contente” (La Nunca Satisfecha), vehículo eléctrico que en 1899 rompió la barrera de los 100 km/h.<sup>[1, 2]</sup></figcaption>
+                        <figcaption>“La Jamais Contente” (La Nunca Satisfecha), vehículo eléctrico que en 1899 rompió la barrera de los 100 km/h.<sup>[1]</sup></figcaption>
                     </figure>
                     <figure>
                         <div class="gallery-image-container">
                              <img src="Jamais_Contente_-_Compiègne_-_2011-imagen real1.jpg" alt="Fotografía histórica de La Jamais Contente con su piloto" class="w-full h-full object-cover">
                         </div>
-                        <figcaption>El piloto Camille Jenatzy demostró que la propulsión eléctrica era sinónimo de alta performance.<sup>[2]</sup></figcaption>
+                        <figcaption>El piloto Camille Jenatzy demostró que la propulsión eléctrica era sinónimo de alta performance.<sup>[1]</sup></figcaption>
                     </figure>
+                    <figure>
+                        <div class="gallery-image-container">
+                             <img src="Jamais_Contente_-_Compiègne_-_2011-imagen real2.JPG" alt="Réplica de La Jamais Contente en un museo" class="w-full h-full object-cover">
+                        </div>
+                        <figcaption>Réplica del vehículo exhibida en el museo de Compiègne, Francia.</figcaption>
+                    </figure>
+                </div>
+                 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="gallery-image-container">
+                        <img src="vintage electric vehicle from 1900s next to modern electric car, dramatic lighting, historical comparison, professional photography.png" alt="Comparativa entre un vehículo eléctrico de 1900 y uno moderno" class="w-full h-full object-cover">
+                    </div>
+                     <div class="gallery-image-container">
+                        <img src="Vintage electric vehicle from 1900s next to modern electric car, dramatic lighting, historical comparison, blue and silver tones.png" alt="Comparativa entre un vehículo eléctrico de 1900 y uno moderno con tonos azules" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="funcionamiento" class="py-16 md:py-24 bg-white">
+        <section id="funcionamiento" class="py-16 md:py-24 bg-brand-gray">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark-text">Del Electrón a la Rueda</h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">El funcionamiento de un VE es una aplicación elegante de las leyes del electromagnetismo. Cada componente opera según estos principios.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-light">Del Electrón a la Rueda</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">El funcionamiento de un VE es una aplicación elegante de las leyes del electromagnetismo. Cada componente opera según estos principios.</p>
                 </div>
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 text-center font-semibold text-brand-dark-text">
-                    <div class="diagram-item p-4 border-2 border-gray-200 rounded-lg bg-white shadow-sm w-48 h-32 flex items-center justify-center" data-info="La batería almacena energía creando una diferencia de potencial (voltaje) entre sus terminales, lista para ser usada. Este proceso se rige por la Ley de Gauss para la Electricidad.">
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 text-center font-semibold text-brand-light">
+                    <div class="diagram-item p-4 border-2 border-gray-700 rounded-lg bg-brand-dark shadow-sm w-48 h-32 flex items-center justify-center" data-info="La batería almacena energía creando una diferencia de potencial (voltaje) entre sus terminales, lista para ser usada. Este proceso se rige por la Ley de Gauss para la Electricidad.">
                         <span class="text-2xl mr-2">🔋</span> Batería
                     </div>
-                    <div class="text-2xl text-brand-green font-bold block md:hidden">&darr;</div>
-                    <div class="text-2xl text-brand-green font-bold hidden md:block">&rarr;</div>
-                    <div class="diagram-item p-4 border-2 border-gray-200 rounded-lg bg-white shadow-sm w-48 h-32 flex items-center justify-center" data-info="El inversor convierte la Corriente Continua (CC) de la batería en Corriente Alterna (CA) y regula su frecuencia para controlar la velocidad del motor.">
+                    <div class="text-2xl text-brand-accent font-bold block md:hidden">&darr;</div>
+                    <div class="text-2xl text-brand-accent font-bold hidden md:block">&rarr;</div>
+                    <div class="diagram-item p-4 border-2 border-gray-700 rounded-lg bg-brand-dark shadow-sm w-48 h-32 flex items-center justify-center" data-info="El inversor convierte la Corriente Continua (CC) de la batería en Corriente Alterna (CA) y regula su frecuencia para controlar la velocidad del motor.">
                         <span class="text-2xl mr-2">⚡</span> Inversor
                     </div>
-                    <div class="text-2xl text-brand-green font-bold block md:hidden">&darr;</div>
-                    <div class="text-2xl text-brand-green font-bold hidden md:block">&rarr;</div>
-                    <div class="diagram-item p-4 border-2 border-gray-200 rounded-lg bg-white shadow-sm w-48 h-32 flex items-center justify-center" data-info="La CA del inversor genera un campo magnético giratorio en el estátor (Ley de Ampère-Maxwell), que ejerce una Fuerza de Lorentz sobre los imanes del rotor, haciéndolo girar.">
+                    <div class="text-2xl text-brand-accent font-bold block md:hidden">&darr;</div>
+                    <div class="text-2xl text-brand-accent font-bold hidden md:block">&rarr;</div>
+                    <div class="diagram-item p-4 border-2 border-gray-700 rounded-lg bg-brand-dark shadow-sm w-48 h-32 flex items-center justify-center" data-info="La CA del inversor genera un campo magnético giratorio en el estátor (Ley de Ampère-Maxwell), que ejerce una Fuerza de Lorentz sobre los imanes del rotor, haciéndolo girar.">
                         <span class="text-2xl mr-2">⚙️</span> Motor Eléctrico
                     </div>
-                     <div class="text-2xl text-brand-green font-bold block md:hidden">&darr;</div>
-                     <div class="text-2xl text-brand-green font-bold hidden md:block">&rarr;</div>
-                    <div class="diagram-item p-4 border-2 border-gray-200 rounded-lg bg-white shadow-sm w-48 h-32 flex items-center justify-center" data-info="Las ruedas son impulsadas por una caja reductora simple. Al frenar, el motor se convierte en generador (Ley de Faraday), recuperando energía y recargando la batería.">
+                     <div class="text-2xl text-brand-accent font-bold block md:hidden">&darr;</div>
+                     <div class="text-2xl text-brand-accent font-bold hidden md:block">&rarr;</div>
+                    <div class="diagram-item p-4 border-2 border-gray-700 rounded-lg bg-brand-dark shadow-sm w-48 h-32 flex items-center justify-center" data-info="Las ruedas son impulsadas por una caja reductora simple. Al frenar, el motor se convierte en generador (Ley de Faraday), recuperando energía y recargando la batería.">
                         <span class="text-2xl mr-2">🚗</span> Ruedas
                     </div>
                 </div>
-                <div id="diagram-info" class="mt-8 text-center text-gray-600 bg-brand-light-gray p-4 rounded-lg min-h-[80px] max-w-3xl mx-auto flex items-center justify-center transition-opacity duration-300 opacity-0">
+                <div id="diagram-info" class="mt-8 text-center text-gray-400 bg-brand-dark p-4 rounded-lg min-h-[80px] max-w-3xl mx-auto flex items-center justify-center transition-opacity duration-300 opacity-0">
                     <p>Pase el cursor sobre un elemento para ver la explicación.</p>
+                </div>
+                 <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="gallery-image-container">
+                        <img src="Electric vehicle motor cutaway diagram showing rotor, stator, and magnetic fields, technical illustration with blue electric currents visible.png" alt="Diagrama de un motor eléctrico" class="w-full h-full object-cover">
+                    </div>
+                    <div class="gallery-image-container">
+                        <img src="Physics classroom with electric vehicle components displayed, students examining electromagnetic principles, educational setting with renewable energy diagrams.png" alt="Clase de física con componentes de vehículos eléctricos" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="uruguay" class="py-16 md:py-24 bg-brand-light-gray">
+        <section id="uruguay" class="py-16 md:py-24 bg-brand-dark">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark-text">El Ecosistema Eléctrico en Uruguay</h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Uruguay es un líder regional en movilidad eléctrica gracias a políticas estratégicas, una matriz energética limpia y un mercado en expansión.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-light">El Ecosistema Eléctrico en Uruguay</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Uruguay es un líder regional en movilidad eléctrica gracias a políticas estratégicas, una matriz energética limpia y un mercado en expansión.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-bold text-brand-dark-text text-center mb-4">Crecimiento de Ventas (2022-2023)</h3>
+                    <div class="bg-brand-gray p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-brand-light text-center mb-4">Crecimiento de Ventas (2022-2023)</h3>
                          <div class="chart-container">
                             <canvas id="salesChart"></canvas>
                         </div>
-                        <p class="text-sm text-gray-500 mt-4 text-center">Fuente: ACAU / MIEM.<sup>[7]</sup></p>
+                        <p class="text-sm text-gray-500 mt-4 text-center">Fuente: ACAU / MIEM.<sup>[6]</sup></p>
                     </div>
 
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-bold text-brand-dark-text text-center mb-4">Costo por cada 100 km</h3>
+                    <div class="bg-brand-gray p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-brand-light text-center mb-4">Costo por cada 100 km</h3>
                         <div class="flex justify-around items-center mt-6">
                             <div class="text-center">
-                                <span class="text-5xl font-extrabold text-brand-green">$43</span>
-                                <p class="font-semibold text-brand-dark-text mt-2">Vehículo Eléctrico</p>
-                                <p class="text-xs text-gray-500">(Tarifa UTE Valle)<sup>[8]</sup></p>
+                                <span class="text-5xl font-extrabold text-brand-accent">$43</span>
+                                <p class="font-semibold text-brand-light mt-2">Vehículo Eléctrico</p>
+                                <p class="text-xs text-gray-400">(Tarifa UTE Valle)<sup>[7]</sup></p>
                             </div>
                              <div class="text-center">
                                 <span class="text-5xl font-extrabold text-red-500">$628</span>
-                                <p class="font-semibold text-brand-dark-text mt-2">Vehículo a Gasolina</p>
-                                <p class="text-xs text-gray-500">(Nafta Súper 95)</p>
+                                <p class="font-semibold text-brand-light mt-2">Vehículo a Gasolina</p>
+                                <p class="text-xs text-gray-400">(Nafta Súper 95)</p>
                             </div>
                         </div>
-                        <p class="text-center mt-6 font-semibold text-lg text-brand-blue">
-                            Más de 14 veces más económico.<sup>[8]</sup>
+                        <p class="text-center mt-6 font-semibold text-lg text-blue-400">
+                            Más de 14 veces más económico.<sup>[7]</sup>
                         </p>
                     </div>
                 </div>
 
-                 <div class="mt-16 bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold text-brand-dark-text text-center mb-6">Innovación Local: El "Ñato" Eléctrico</h3>
+                 <div class="mt-16 bg-brand-gray p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-brand-light text-center mb-6">Innovación Local: El "Ñato" Eléctrico</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        <p class="text-gray-600 text-justify">
-                            La innovación local juega un papel simbólico importante. Un ejemplo es el proyecto de Francisco Romero, quien en 2018 convirtió un Volkswagen Fusca clásico en un VE funcional apodado "Ñato", con una autonomía de 60 km para uso urbano.<sup>[9]</sup> Este tipo de proyectos demuestran el ingenio y la pasión por la electromovilidad en el país.
+                        <p class="text-gray-300 text-justify">
+                            La innovación local juega un papel simbólico importante. Un ejemplo es el proyecto de Francisco Romero, quien en 2018 convirtió un Volkswagen Fusca clásico en un VE funcional apodado "Ñato", con una autonomía de 60 km para uso urbano.<sup>[8]</sup> Este tipo de proyectos demuestran el ingenio y la pasión por la electromovilidad en el país.
                         </p>
-                         <figure>
-                            <div class="gallery-image-container h-80">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="gallery-image-container h-48">
                                 <img src="Ñato fusca electrico uruguay imagen real.png" alt="Vista exterior del Fusca eléctrico Ñato" class="w-full h-full object-cover">
                             </div>
-                            <figcaption>El "Ñato", un Volkswagen Fusca convertido a 100% eléctrico en Uruguay.<sup>[9]</sup></figcaption>
-                        </figure>
+                            <div class="gallery-image-container h-48">
+                                <img src="Ñato fusca electrico uruguay imagen real 3.png" alt="Antes y después de la conversión del Fusca" class="w-full h-full object-cover">
+                            </div>
+                            <div class="gallery-image-container h-48 col-span-2">
+                                <img src="Ñato fusca electrico uruguay imagen real 2.png" alt="Tablero personalizado del Fusca eléctrico" class="w-full h-full object-cover">
+                            </div>
+                        </div>
                     </div>
                  </div>
             </div>
         </section>
 
-        <section id="analisis" class="py-16 md:py-24 bg-white">
+        <section id="analisis" class="py-16 md:py-24 bg-brand-gray">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark-text">Análisis: Ventajas y Desafíos Críticos</h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Una evaluación completa debe analizar las ventajas evidentes y los desafíos significativos de la transición eléctrica.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-light">Análisis: Ventajas y Desafíos Críticos</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Una evaluación completa debe analizar las ventajas evidentes y los desafíos significativos de la transición eléctrica.</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                    <div class="bg-brand-light-gray p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-green-600 mb-6 text-center">Ventajas</h3>
-                        <ul class="space-y-4 text-gray-700">
-                            <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✓</span><div><strong class="text-brand-dark-text">Ahorro Operativo:</strong> Costo de "combustible" hasta 14 veces menor<sup>[8]</sup> y mantenimiento reducido (sin cambios de aceite, filtros, bujías).<sup>[10]</sup></div></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✓</span><div><strong class="text-brand-dark-text">Beneficios Fiscales:</strong> Reducción del 50% en el costo de la patente de rodados para vehículos eléctricos en Uruguay.<sup>[11]</sup></div></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✓</span><div><strong class="text-brand-dark-text">Mejora Ambiental Local:</strong> Son silenciosos y no emiten gases contaminantes en el punto de uso, mejorando la calidad del aire y reduciendo el ruido en ciudades.<sup>[4]</sup></div></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✓</span><div><strong class="text-brand-dark-text">Infraestructura Centralizada:</strong> La red de carga de UTE, con un cargador cada 50 km en rutas nacionales<sup>[7]</sup>, mitiga la ansiedad por la autonomía.</div></li>
+                    <div class="bg-brand-dark p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-brand-accent mb-6 text-center">Ventajas</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start"><span class="text-brand-accent mr-3 text-2xl">✓</span><div><strong class="text-brand-light">Ahorro Operativo:</strong> Costo de "combustible" hasta 14 veces menor<sup>[7]</sup> y mantenimiento reducido (sin cambios de aceite, filtros, bujías).<sup>[9]</sup></div></li>
+                            <li class="flex items-start"><span class="text-brand-accent mr-3 text-2xl">✓</span><div><strong class="text-brand-light">Beneficios Fiscales:</strong> Reducción del 50% en el costo de la patente de rodados para vehículos eléctricos en Uruguay.<sup>[10]</sup></div></li>
+                            <li class="flex items-start"><span class="text-brand-accent mr-3 text-2xl">✓</span><div><strong class="text-brand-light">Mejora Ambiental Local:</strong> Son silenciosos y no emiten gases contaminantes en el punto de uso, mejorando la calidad del aire y reduciendo el ruido en ciudades.<sup>[3]</sup></div></li>
+                            <li class="flex items-start"><span class="text-brand-accent mr-3 text-2xl">✓</span><div><strong class="text-brand-light">Infraestructura Centralizada:</strong> La red de carga de UTE, con un cargador cada 50 km en rutas nacionales<sup>[6]</sup>, mitiga la ansiedad por la autonomía.</div></li>
                         </ul>
                     </div>
-                     <div class="bg-brand-light-gray p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-red-600 mb-6 text-center">Desafíos</h3>
-                        <ul class="space-y-4 text-gray-700">
-                            <li class="flex items-start"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-brand-dark-text">Costo Inicial Elevado:</strong> Sigue siendo la barrera de entrada más importante para la mayoría de los consumidores.<sup>[12]</sup></div></li>
-                            <li class="flex items-start"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-brand-dark-text">Degradación de la Batería:</strong> Las baterías pierden capacidad con el tiempo y los ciclos de carga, y su eventual reemplazo es el componente más costoso del vehículo.<sup>[13]</sup></div></li>
-                            <li class="flex items-start"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-brand-dark-text">Impacto de la Minería:</strong> La extracción de litio es intensiva en el uso de agua, contamina con químicos tóxicos y puede generar conflictos sociales con comunidades locales.<sup>[14, 15]</sup></div></li>
-                            <li class="flex items-start"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-brand-dark-text">Fin de Vida Útil:</strong> La reutilización y el reciclaje a gran escala de las baterías es un desafío tecnológico y logístico pendiente a nivel global.<sup>[7]</sup></div></li>
+                     <div class="bg-brand-dark p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-red-500 mb-6 text-center">Desafíos</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-brand-light">Costo Inicial Elevado:</strong> Sigue siendo la barrera de entrada más importante para la mayoría de los consumidores.<sup>[11]</sup></div></li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-brand-light">Degradación de la Batería:</strong> Las baterías pierden capacidad con el tiempo y los ciclos de carga, y su eventual reemplazo es el componente más costoso del vehículo.<sup>[12]</sup></div></li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-brand-light">Impacto de la Minería:</strong> La extracción de litio es intensiva en el uso de agua, contamina con químicos tóxicos y puede generar conflictos sociales con comunidades locales.<sup>[13, 14]</sup></div></li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 text-2xl">⚠️</span><div><strong class="text-brand-light">Fin de Vida Útil:</strong> La reutilización y el reciclaje a gran escala de las baterías es un desafío tecnológico y logístico pendiente a nivel global.<sup>[6]</sup></div></li>
                         </ul>
+                    </div>
+                </div>
+                 <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="gallery-image-container h-80">
+                        <img src="piletas-evaporacion-litio-atacama-chile_Hernis_K6YCTP-scaled.jpg" alt="Piletas de evaporación de litio en el Salar de Atacama" class="w-full h-full object-cover">
+                    </div>
+                    <div class="gallery-image-container h-80">
+                        <img src="Laboratory testing of electric vehicle batteries, thermal imaging camera showing heat distribution, scientific equipment, educational setting.png" alt="Pruebas de laboratorio en baterías de vehículos eléctricos" class="w-full h-full object-cover">
+                    </div>
+                    <div class="gallery-image-container h-80">
+                        <img src="Sequía-en-presas-hidroeléctricas.jpg" alt="Presa hidroeléctrica con bajo nivel de agua" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="conclusion" class="py-16 md:py-24 bg-brand-light-gray">
+        <section id="conclusion" class="py-16 md:py-24 bg-brand-dark">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl">
-                    <h2 class="text-2xl md:text-3xl font-bold text-brand-dark-text text-center mb-6">Conclusión: Un Futuro Equilibrado</h2>
-                    <p class="text-gray-600 text-justify space-y-4">
+                 <div class="max-w-3xl mx-auto bg-brand-gray p-8 md:p-12 rounded-lg shadow-2xl shadow-black/30">
+                    <h2 class="text-2xl md:text-3xl font-bold text-brand-light text-center mb-6">Conclusión: Un Futuro Equilibrado</h2>
+                    <p class="text-gray-300 text-justify space-y-4">
                         <span>El vehículo eléctrico representa una tecnología de propulsión superior y una solución prometedora para Uruguay. Sus beneficios locales son claros: reduce la contaminación, disminuye la dependencia de combustibles fósiles y ofrece un ahorro sustancial al consumidor.</span>
                         <span>Sin embargo, una perspectiva responsable exige mirar más allá de nuestras fronteras. La sostenibilidad global de esta transición depende de resolver los profundos desafíos ambientales y sociales de su cadena de suministro. Es imperativo que países como Uruguay aboguen por una minería responsable y la transparencia en toda la cadena.</span>
                         <span>El futuro del transporte es eléctrico, pero su éxito final dependerá de nuestra capacidad para equilibrar los beneficios locales con nuestras responsabilidades globales.</span>
@@ -266,50 +311,49 @@
             </div>
         </section>
 
-        <section id="fuentes" class="py-16 md:py-24 bg-white">
+        <section id="fuentes" class="py-16 md:py-24 bg-brand-gray">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark-text text-center mb-12">Fuentes Bibliográficas</h2>
-                <div class="max-w-4xl mx-auto text-xs text-gray-500 space-y-2">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-light text-center mb-12">Fuentes Bibliográficas</h2>
+                <div class="max-w-4xl mx-auto text-xs text-gray-400 space-y-2">
                     <p><strong>[1]</strong> APRR AREA. (2023, 19 de febrero). La Jamais contente, première voiture à dépasser les 100 km/h.</p>
-                    <p><strong>[2]</strong> Wikipedia. (s.f.). La Jamais contente.</p>
-                    <p><strong>[3]</strong> ResearchGate. (2022, febrero). Inventor del Primer Modelo de Vehículo Eléctrico del Mundo.</p>
-                    <p><strong>[4]</strong> GreenCars. (s.f.). Historia de los primeros coches eléctricos.</p>
-                    <p><strong>[5]</strong> NationalMagLab. (s.f.). Planté Battery - 1859.</p>
-                    <p><strong>[6]</strong> Autoanuario. (2015, 26 de junio). Lanzamiento: Mitsubishi i-MiEV, el futuro eléctrico está en Uruguay.</p>
-                    <p><strong>[7]</strong> Uruguay.ahk.de. (2024). Informe Ambiental - Ed. 01/2024.</p>
-                    <p><strong>[8]</strong> UTE. (s.f.). Aprendé a ahorrar con Movilidad Eléctrica.</p>
-                    <p><strong>[9]</strong> La Mañana. (2021, 30 de septiembre). La historia del uruguayo que creó el primer Fusca eléctrico del país.</p>
-                    <p><strong>[10]</strong> Iberdrola. (s.f.). Movilidad eléctrica.</p>
-                    <p><strong>[11]</strong> AUTO ELÉCTRICO en Uruguay, Vale la Pena? | ANÁLISIS FINANCIERO con @alexis_martinovic - YouTube. (s.f.)</p>
-                    <p><strong>[12]</strong> Airbag. (2025, 25 de abril). ¿Vale la pena pasarse a un auto eléctrico en Uruguay?</p>
-                    <p><strong>[13]</strong> Memoria Anual 2023 de UTE: Avances y desafíos en el sector eléctrico uruguayo - SEG Ingenieria. (2024, agosto).</p>
-                    <p><strong>[14]</strong> Kaunda, R. B. (2020). Potential environmental impacts of lithium mining. Journal of Energy & Natural Resources Law, 38(3).</p>
-                    <p><strong>[15]</strong> Jerez, B., Garcés, I., & Torres, R. (2021). Lithium mining in salt flats: A review of its environmental and social impacts. Oxford Research Encyclopedia of Climate Science.</p>
+                    <p><strong>[2]</strong> ResearchGate. (2022, febrero). Inventor del Primer Modelo de Vehículo Eléctrico del Mundo.</p>
+                    <p><strong>[3]</strong> GreenCars. (s.f.). Historia de los primeros coches eléctricos.</p>
+                    <p><strong>[4]</strong> NationalMagLab. (s.f.). Planté Battery - 1859.</p>
+                    <p><strong>[5]</strong> Autoanuario. (2015, 26 de junio). Lanzamiento: Mitsubishi i-MiEV, el futuro eléctrico está en Uruguay.</p>
+                    <p><strong>[6]</strong> Uruguay.ahk.de. (2024). Informe Ambiental - Ed. 01/2024.</p>
+                    <p><strong>[7]</strong> UTE. (s.f.). Aprendé a ahorrar con Movilidad Eléctrica.</p>
+                    <p><strong>[8]</strong> La Mañana. (2021, 30 de septiembre). La historia del uruguayo que creó el primer Fusca eléctrico del país.</p>
+                    <p><strong>[9]</strong> Iberdrola. (s.f.). Movilidad eléctrica.</p>
+                    <p><strong>[10]</strong> AUTO ELÉCTRICO en Uruguay, Vale la Pena? | ANÁLISIS FINANCIERO con @alexis_martinovic - YouTube. (s.f.)</p>
+                    <p><strong>[11]</strong> Airbag. (2025, 25 de abril). ¿Vale la pena pasarse a un auto eléctrico en Uruguay?</p>
+                    <p><strong>[12]</strong> Memoria Anual 2023 de UTE: Avances y desafíos en el sector eléctrico uruguayo - SEG Ingenieria. (2024, agosto).</p>
+                    <p><strong>[13]</strong> Kaunda, R. B. (2020). Potential environmental impacts of lithium mining. Journal of Energy & Natural Resources Law, 38(3).</p>
+                    <p><strong>[14]</strong> Jerez, B., Garcés, I., & Torres, R. (2021). Lithium mining in salt flats: A review of its environmental and social impacts. Oxford Research Encyclopedia of Climate Science.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-brand-blue text-white py-12">
+    <footer class="bg-black text-white py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
             <p>&copy; 2025 Análisis Interactivo del Vehículo Eléctrico.</p>
-            <p class="mt-2 text-gray-300">Creado a partir del informe "El Vehículo Eléctrico: Un Análisis Exhaustivo..." para una visualización de datos mejorada.</p>
+            <p class="mt-2 text-gray-400">Creado a partir del informe "El Vehículo Eléctrico: Un Análisis Exhaustivo..." para una visualización de datos mejorada.</p>
         </div>
     </footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const timelineData = [
-        { year: '1828', title: 'Prueba de Concepto', text: 'Ányos Jedlik construye un motor eléctrico y lo usa para impulsar un modelo a escala, demostrando el principio de propulsión eléctrica. [3]' },
-        { year: '1834', title: 'Pioneros Paralelos', text: 'Robert Anderson en Escocia crea un carruaje eléctrico. En EE.UU., Thomas Davenport impulsa un vehículo en una pista circular, el primer ferrocarril eléctrico.' },
-        { year: '1859', title: 'La Batería Recargable', text: 'Gaston Planté inventa la batería de plomo-ácido, el habilitador tecnológico que hizo viables a los VE. [5]' },
+        { year: '1828', title: 'Prueba de Concepto', text: 'Ányos Jedlik construye un motor eléctrico y lo usa para impulsar un modelo a escala.<sup>[2]</sup>' },
+        { year: '1834', title: 'Pioneros Paralelos', text: 'Robert Anderson en Escocia crea un carruaje eléctrico. En EE.UU., Thomas Davenport impulsa un vehículo en una pista circular.' },
+        { year: '1859', title: 'La Batería Recargable', text: 'Gaston Planté inventa la batería de plomo-ácido, el habilitador tecnológico que hizo viables a los VE.<sup>[4]</sup>' },
         { year: '1881', title: 'Optimización Industrial', text: 'Camille Faure mejora drásticamente el diseño de la batería de Planté, permitiendo su fabricación a gran escala.' },
-        { year: '1899', title: 'Récord de Velocidad', text: 'Camille Jenatzy, en "La Jamais Contente", se convierte en la primera persona en superar los 100 km/h. [1, 2]' },
-        { year: '1900', title: 'La Primera Edad de Oro', text: 'El 38% de los automóviles en EE.UU. son eléctricos. Eran silenciosos, limpios y fáciles de operar. [4]' },
-        { year: '1912', title: 'El Declive', text: 'La cadena de montaje de Henry Ford abarata los autos a gasolina, y el motor de arranque eléctrico elimina su principal desventaja. [4]' },
+        { year: '1899', title: 'Récord de Velocidad', text: 'Camille Jenatzy, en "La Jamais Contente", se convierte en la primera persona en superar los 100 km/h.<sup>[1]</sup>' },
+        { year: '1900', title: 'La Primera Edad de Oro', text: 'El 38% de los automóviles en EE.UU. son eléctricos. Eran silenciosos, limpios y fáciles de operar.<sup>[3]</sup>' },
+        { year: '1912', title: 'El Declive', text: 'La cadena de montaje de Henry Ford abarata los autos a gasolina, y el motor de arranque eléctrico elimina su principal desventaja.<sup>[3]</sup>' },
         { year: '1980s', title: 'Nace el Ión de Litio', text: 'La invención de la batería de iones de litio ofrece una densidad energética muy superior, sentando las bases para el renacimiento del VE.' },
         { year: '2008', title: 'El Renacimiento Moderno', text: 'Tesla Motors lanza el Roadster, demostrando que los VE podían ser vehículos deseables, de alto rendimiento y con autonomía práctica.' },
-        { year: '2015', title: 'Llegada a Uruguay', text: 'El Mitsubishi i-Miev se convierte en el primer VE vendido de forma masiva en el país. [6]' },
+        { year: '2015', title: 'Llegada a Uruguay', text: 'El Mitsubishi i-Miev se convierte en el primer VE vendido de forma masiva en el país.<sup>[5]</sup>' },
     ];
 
     const timelineContainer = document.getElementById('timeline-container');
@@ -326,20 +370,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 wrapper.className = 'timeline-wrapper relative pl-10';
                 
                 const dot = document.createElement('div');
-                dot.className = 'absolute left-0 top-1 w-5 h-5 bg-white border-2 border-gray-300 rounded-full';
+                dot.className = 'absolute left-0 top-1 w-5 h-5 bg-brand-dark border-2 border-gray-600 rounded-full';
                 
                 const contentDiv = document.createElement('div');
                 
                 const year = document.createElement('p');
-                year.className = 'font-bold text-brand-dark-text';
+                year.className = 'font-bold text-brand-light';
                 year.textContent = item.year;
                 
                 const title = document.createElement('h4');
-                title.className = 'font-bold text-brand-green mt-1';
+                title.className = 'font-bold text-brand-accent mt-1';
                 title.textContent = item.title;
                 
                 const text = document.createElement('p');
-                text.className = 'text-sm text-gray-600 mt-1';
+                text.className = 'text-sm text-gray-400 mt-1';
                 text.innerHTML = item.text;
                 
                 contentDiv.appendChild(year);
@@ -350,9 +394,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 list.appendChild(wrapper);
             });
             timelineContainer.appendChild(list);
-        } else { // Desktop
+        } else {
             const line = document.createElement('div');
-            line.className = 'absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 transform -translate-y-1/2';
+            line.className = 'absolute top-1/2 left-0 w-full h-0.5 bg-brand-gray transform -translate-y-1/2';
             timelineContainer.appendChild(line);
             const itemContainer = document.createElement('div');
             itemContainer.className = 'flex justify-between relative';
@@ -362,19 +406,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 wrapper.className = 'flex flex-col items-center group cursor-pointer';
 
                 const dot = document.createElement('div');
-                dot.className = 'w-4 h-4 bg-white border-2 border-gray-300 rounded-full transition-colors group-hover:bg-brand-green group-hover:border-brand-green z-10';
+                dot.className = 'w-4 h-4 bg-brand-dark border-2 border-gray-500 rounded-full transition-colors group-hover:bg-brand-accent group-hover:border-brand-accent z-10';
 
                 const year = document.createElement('div');
-                year.className = 'mt-4 font-bold text-brand-dark-text';
+                year.className = 'mt-4 font-bold text-brand-light';
                 year.textContent = item.year;
 
                 const content = document.createElement('div');
-                content.className = 'timeline-item-content absolute bottom-full mb-4 w-64 bg-white p-4 rounded-lg shadow-lg opacity-0 transform translate-y-2 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-80';
+                content.className = 'timeline-item-content absolute bottom-full mb-4 w-64 bg-brand-gray p-4 rounded-lg shadow-lg opacity-0 transform translate-y-2 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-80';
                 const title = document.createElement('h4');
-                title.className = 'font-bold text-brand-green text-sm';
+                title.className = 'font-bold text-brand-accent text-sm';
                 title.textContent = item.title;
                 const text = document.createElement('p');
-                text.className = 'text-sm text-gray-600 mt-1';
+                text.className = 'text-sm text-gray-300 mt-1';
                 text.innerHTML = item.text;
                 content.appendChild(title);
                 content.appendChild(text);
@@ -431,14 +475,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 datasets: [{
                     label: 'Unidades Vendidas',
                     data: [1048, 1887], // Data from PDF
-                    backgroundColor: [
-                        'rgba(132, 204, 22, 0.6)',
-                        'rgba(13, 148, 136, 0.6)'
-                    ],
-                    borderColor: [
-                        'rgba(132, 204, 22, 1)',
-                        'rgba(13, 148, 136, 1)'
-                    ],
+                    backgroundColor: 'rgba(0, 255, 0, 0.6)',
+                    borderColor: 'rgba(0, 255, 0, 1)',
                     borderWidth: 1
                 }]
             },
@@ -453,13 +491,20 @@ document.addEventListener('DOMContentLoaded', function () {
                         display: true,
                         text: 'Crecimiento del 80.1%',
                         font: {
-                            size: 14
-                        }
+                            size: 14,
+                        },
+                        color: '#F5F5F7'
                     }
                 },
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: { color: '#F5F5F7' },
+                        grid: { color: '#333' }
+                    },
+                    x: {
+                        ticks: { color: '#F5F5F7' },
+                        grid: { color: '#333' }
                     }
                 }
             }
