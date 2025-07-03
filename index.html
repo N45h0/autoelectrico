@@ -67,6 +67,13 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+        .gallery-image-container {
+            width: 100%;
+            height: 24rem; /* 384px */
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-brand-dark">
@@ -102,30 +109,27 @@
             </div>
         </section>
 
-        <section id="historia" class="py-20 md:py-28 bg-brand-dark">
+        <section id="historia" class="py-16 md:py-24 bg-brand-dark">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
+                <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-light">Un Viaje de 200 Años</h2>
                     <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">La historia del vehículo eléctrico es más antigua y fascinante de lo que muchos imaginan. Explore los hitos clave de este viaje cíclico.</p>
                 </div>
                 <div id="timeline-container" class="relative max-w-5xl mx-auto">
                 </div>
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                    <div class="w-full h-96 rounded-lg shadow-2xl shadow-black/30 overflow-hidden">
-                        <!-- NOTA: Ruta al archivo 'La-Jamais-Contente....png' (Ilustrativa) -->
+                    <div class="gallery-image-container">
                         <img src="La Jamais Contente electric vehicle 1899 speed record, historical photograph, dramatic angle.png" alt="Ilustración artística de La Jamais Contente" class="w-full h-full object-cover">
                     </div>
-                    <div class="w-full h-96 rounded-lg shadow-2xl shadow-black/30 overflow-hidden">
-                        <!-- NOTA: Ruta al archivo 'Jamais_Contente_-_Compiègne_-_2011-imagen real1.jpg' (Real Histórica) -->
+                    <div class="gallery-image-container">
                         <img src="Jamais_Contente_-_Compiègne_-_2011-imagen real1.jpg" alt="Fotografía histórica de La Jamais Contente con su piloto" class="w-full h-full object-cover">
                     </div>
-                    <div class="w-full h-96 rounded-lg shadow-2xl shadow-black/30 overflow-hidden">
-                        <!-- NOTA: Ruta al archivo 'Jamais_Contente_-_Compiègne_-_2011-imagen real2.JPG' (Real Museo) -->
+                    <div class="gallery-image-container">
                         <img src="Jamais_Contente_-_Compiègne_-_2011-imagen real2.JPG" alt="Réplica de La Jamais Contente en un museo" class="w-full h-full object-cover">
                     </div>
                 </div>
-                 <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="w-full h-96 rounded-lg shadow-2xl shadow-black/30 overflow-hidden">
+                 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="gallery-image-container">
                         <img src="vintage electric vehicle from 1900s next to modern electric car, dramatic lighting, historical comparison, professional photography.png" alt="Comparativa entre un vehículo eléctrico de 1900 y uno moderno" class="w-full h-full object-cover">
                     </div>
                     <div class="flex items-center justify-center h-96 rounded-lg bg-brand-gray p-8">
@@ -138,9 +142,9 @@
             </div>
         </section>
 
-        <section id="funcionamiento" class="py-20 md:py-28 bg-brand-gray">
+        <section id="funcionamiento" class="py-16 md:py-24 bg-brand-gray">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
+                <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-light">Del Electrón a la Rueda</h2>
                     <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">El motor eléctrico es una maravilla de la física aplicada. Su funcionamiento, elegante y eficiente, se basa en las leyes fundamentales del electromagnetismo.</p>
                 </div>
@@ -168,21 +172,19 @@
                     <p>Pase el cursor sobre un elemento para ver la explicación.</p>
                 </div>
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <img src="Electric vehicle motor cutaway diagram showing rotor, stator, and magnetic fields, technical illustration with blue electric currents visible.png" alt="Diagrama de un motor eléctrico" class="rounded-lg shadow-2xl shadow-black/30 w-full h-auto">
-                        <p class="text-center text-sm text-gray-500 mt-2">Corte esquemático de un motor eléctrico moderno.</p>
+                    <div class="gallery-image-container">
+                        <img src="Electric vehicle motor cutaway diagram showing rotor, stator, and magnetic fields, technical illustration with blue electric currents visible.png" alt="Diagrama de un motor eléctrico" class="w-full h-full object-cover">
                     </div>
-                    <div>
-                        <img src="Physics classroom with electric vehicle components displayed, students examining electromagnetic principles, educational setting with renewable energy diagrams.png" alt="Clase de física con componentes de vehículos eléctricos" class="rounded-lg shadow-2xl shadow-black/30 w-full h-auto">
-                        <p class="text-center text-sm text-gray-500 mt-2">Estudio de los principios electromagnéticos aplicados.</p>
+                    <div class="gallery-image-container">
+                        <img src="Physics classroom with electric vehicle components displayed, students examining electromagnetic principles, educational setting with renewable energy diagrams.png" alt="Clase de física con componentes de vehículos eléctricos" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="uruguay" class="py-20 md:py-28 bg-brand-dark">
+        <section id="uruguay" class="py-16 md:py-24 bg-brand-dark">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
+                <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-light">Uruguay: Laboratorio Eléctrico</h2>
                     <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Con una matriz energética limpia y políticas de incentivo, Uruguay es un líder regional en movilidad eléctrica. Los datos y las imágenes muestran el avance de esta transformación.</p>
                 </div>
@@ -208,13 +210,11 @@
                         </div>
                     </div>
                     <div class="space-y-8">
-                        <div>
-                            <img src="MAPA DE RED DE CARGA UTE URUGUAY.png" alt="Mapa de la red de carga de UTE en Uruguay" class="rounded-lg shadow-2xl shadow-black/30 w-full h-auto">
-                            <p class="text-center text-sm text-gray-500 mt-2">Red de carga de UTE cubriendo todo el territorio nacional.</p>
+                        <div class="gallery-image-container">
+                            <img src="MAPA DE RED DE CARGA UTE URUGUAY.png" alt="Mapa de la red de carga de UTE en Uruguay" class="w-full h-full object-cover object-center">
                         </div>
-                        <div>
-                            <img src="Electric car charging at UTE station in Uruguay, clean modern design, person smiling while plugging in vehicle, sunny day.png" alt="Mujer cargando un vehículo eléctrico en una estación de UTE" class="rounded-lg shadow-2xl shadow-black/30 w-full h-auto">
-                            <p class="text-center text-sm text-gray-500 mt-2">La carga pública es una realidad accesible en Uruguay.</p>
+                        <div class="gallery-image-container">
+                            <img src="Electric car charging at UTE station in Uruguay, clean modern design, person smiling while plugging in vehicle, sunny day.png" alt="Mujer cargando un vehículo eléctrico en una estación de UTE" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -222,17 +222,23 @@
                     <h3 class="text-2xl font-bold text-brand-light text-center mb-6">Innovación Local: El "Ñato" Eléctrico</h3>
                     <p class="mt-2 text-gray-400 text-center max-w-3xl mx-auto">Proyectos como la conversión de vehículos clásicos demuestran el ingenio y la pasión por la electromovilidad en Uruguay. El "Ñato", un Fusca convertido a 100% eléctrico, es un ejemplo emblemático de esta tendencia.</p>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                        <img src="Ñato fusca electrico uruguay imagen real.png" alt="Vista exterior del Fusca eléctrico Ñato" class="rounded-lg shadow-2xl shadow-black/30 w-full h-auto object-cover">
-                        <img src="Ñato fusca electrico uruguay imagen real 3.png" alt="Antes y después de la conversión del Fusca" class="rounded-lg shadow-2xl shadow-black/30 w-full h-auto object-cover">
-                        <img src="Ñato fusca electrico uruguay imagen real 2.png" alt="Tablero personalizado del Fusca eléctrico" class="rounded-lg shadow-2xl shadow-black/30 w-full h-auto object-cover">
+                        <div class="gallery-image-container h-80">
+                            <img src="Ñato fusca electrico uruguay imagen real.png" alt="Vista exterior del Fusca eléctrico Ñato" class="w-full h-full object-cover">
+                        </div>
+                        <div class="gallery-image-container h-80">
+                            <img src="Ñato fusca electrico uruguay imagen real 3.png" alt="Antes y después de la conversión del Fusca" class="w-full h-full object-cover">
+                        </div>
+                        <div class="gallery-image-container h-80">
+                            <img src="Ñato fusca electrico uruguay imagen real 2.png" alt="Tablero personalizado del Fusca eléctrico" class="w-full h-full object-cover">
+                        </div>
                     </div>
                  </div>
             </div>
         </section>
 
-        <section id="analisis" class="py-20 md:py-28 bg-brand-gray">
+        <section id="analisis" class="py-16 md:py-24 bg-brand-gray">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
+                <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-light">Análisis: Luces y Sombras</h2>
                     <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">La transición eléctrica es compleja. Ofrece enormes ventajas, pero también presenta desafíos tecnológicos y un impacto socioambiental que no debe ser ignorado.</p>
                 </div>
@@ -258,23 +264,20 @@
                     </div>
                 </div>
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="w-full">
-                        <img src="piletas-evaporacion-litio-atacama-chile_Hernis_K6YCTP-scaled.jpg" alt="Piletas de evaporación de litio en el Salar de Atacama" class="rounded-lg shadow-2xl shadow-black/30 w-full h-full object-cover">
-                        <p class="text-center text-sm text-gray-500 mt-2">La extracción de litio consume grandes cantidades de agua en ecosistemas áridos.</p>
+                    <div class="gallery-image-container h-80">
+                        <img src="piletas-evaporacion-litio-atacama-chile_Hernis_K6YCTP-scaled.jpg" alt="Piletas de evaporación de litio en el Salar de Atacama" class="w-full h-full object-cover">
                     </div>
-                    <div class="w-full">
-                        <img src="Laboratory testing of electric vehicle batteries, thermal imaging camera showing heat distribution, scientific equipment, educational setting.png" alt="Pruebas de laboratorio en baterías de vehículos eléctricos" class="rounded-lg shadow-2xl shadow-black/30 w-full h-full object-cover">
-                        <p class="text-center text-sm text-gray-500 mt-2">La investigación es clave para mejorar la durabilidad y el reciclaje de las baterías.</p>
+                    <div class="gallery-image-container h-80">
+                        <img src="Laboratory testing of electric vehicle batteries, thermal imaging camera showing heat distribution, scientific equipment, educational setting.png" alt="Pruebas de laboratorio en baterías de vehículos eléctricos" class="w-full h-full object-cover">
                     </div>
-                    <div class="w-full">
-                        <img src="Sequía-en-presas-hidroeléctricas.jpg" alt="Presa hidroeléctrica con bajo nivel de agua" class="rounded-lg shadow-2xl shadow-black/30 w-full h-full object-cover">
-                        <p class="text-center text-sm text-gray-500 mt-2">La vulnerabilidad climática puede afectar la generación de energía renovable.</p>
+                    <div class="gallery-image-container h-80">
+                        <img src="Sequía-en-presas-hidroeléctricas.jpg" alt="Presa hidroeléctrica con bajo nivel de agua" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="conclusion" class="py-20 md:py-28 bg-brand-dark">
+        <section id="conclusion" class="py-16 md:py-24 bg-brand-dark">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                  <div class="max-w-3xl mx-auto bg-brand-gray p-8 md:p-12 rounded-lg shadow-2xl shadow-black/30">
                     <h2 class="text-2xl md:text-3xl font-bold text-brand-light text-center mb-6">Conclusión: Un Futuro Equilibrado</h2>
